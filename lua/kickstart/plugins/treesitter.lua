@@ -7,6 +7,8 @@ return {
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
+      -- Install parsers synchronously (only applied to `ensure_installed`)
+      sync_install = true,
       auto_install = true,
       highlight = {
         enable = true,
