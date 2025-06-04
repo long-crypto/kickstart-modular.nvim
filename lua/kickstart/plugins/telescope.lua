@@ -61,6 +61,7 @@ return {
         --   },
         -- },
         -- pickers = {}
+        history = false,
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
