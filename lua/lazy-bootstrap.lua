@@ -12,5 +12,10 @@ end
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
-
+--Autoupdate
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    require("lazy").update({ show = false })
+  end,
+})
 -- vim: ts=2 sts=2 sw=2 et
