@@ -31,6 +31,7 @@ return {
         opts = {},
       },
       'folke/lazydev.nvim',
+      'erooke/blink-cmp-latex',
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
