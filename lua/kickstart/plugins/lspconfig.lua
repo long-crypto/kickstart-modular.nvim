@@ -35,7 +35,7 @@ require('fidget').setup {
   },
 }
 
-vim.lsp.set_log_level 'OFF'
+vim.lsp.set_log_level('OFF')
 
 --  This function gets run when an LSP attaches to a particular buffer.
 --    That is to say, every time a new file is opened that is associated with
@@ -169,11 +169,6 @@ require('mason').setup {
   pip = {
     install_args = { '--no-cache-dir' },
   },
-}
-
--- Translates between nvim-lspconfig server names and mason.nvim package names (e.g. lua_ls <-> lua-language-server)
-require('mason-lspconfig').setup {
-  automatic_enable = false, -- Change this to true if you want to automatically enable servers that are installed manually (e.g. via :Mason / :MasonInstall)
 }
 
 -- Ensure the servers and tools above are installed
