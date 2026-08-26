@@ -121,6 +121,8 @@ local servers = {
   -- But for many setups, the LSP (`ts_ls`) will work just fine
   -- ts_ls = {},
 
+-- stylua = {}, -- Used to format Lua code
+
   -- Special Lua Config, as recommended by neovim help docs
   lua_ls = {
     on_init = function(client)
@@ -164,11 +166,11 @@ vim.pack.add {
 }
 
 -- Automatically install LSPs and related tools to stdpath for Neovim
-require('mason').setup {
-  log_level = vim.log.levels.OFF,
-  pip = {
-    install_args = { '--no-cache-dir' },
-  },
+require('mason').setup {}
+
+-- Translates between nvim-lspconfig server names and mason.nvim package names (e.g. lua_ls <-> lua-language-server)
+require('mason-lspconfig').setup {
+  automatic_enable = false, -- Change this to true if you want to automatically enable servers that are installed manually (e.g. via :Mason / :MasonInstall)
 }
 
 -- Ensure the servers and tools above are installed
@@ -180,7 +182,7 @@ require('mason').setup {
 -- You can press `g?` for help in this menu.
 local ensure_installed = vim.tbl_keys(servers or {})
 vim.list_extend(ensure_installed, {
-  'stylua',
+  -- 'stylua',
 })
 
 require('mason-tool-installer').setup { ensure_installed = ensure_installed }
